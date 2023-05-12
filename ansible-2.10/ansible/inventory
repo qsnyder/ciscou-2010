@@ -1,0 +1,26 @@
+[all:vars]
+ansible_connection=ansible.netcommon.network_cli
+ansible_python_interpreter = /usr/bin/env python
+
+[iosxe]
+sandbox-iosxe-recomm-1.cisco.com
+
+[iosxe:vars]
+ansible_user=developer
+ansible_network_os=cisco.ios.ios
+ansible_ssh_pass=lastorangerestoreball8876
+ansible_password=lastorangerestoreball8876
+nc_port=830
+
+[nxos]
+sbx-nxos-mgmt.cisco.com
+
+[nxos:vars]
+ansible_user=admin
+ansible_network_os=cisco.nxos.nxos
+ansible_ssh_pass=Admin_1234!
+nc_port=830
+
+[allpods:children]
+iosxe
+nxos

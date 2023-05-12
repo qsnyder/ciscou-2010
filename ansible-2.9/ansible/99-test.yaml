@@ -1,0 +1,17 @@
+- name: Testing our fact-finding mission
+  hosts: all
+  gather_facts: no
+
+  tasks:
+
+  - name: Gather IOSXE Facts
+    ios_facts:
+      gather_subset:
+      - config
+    when: ansible_network_os == 'ios'
+ 
+  - name: Gather NXOS Facts
+    nxos_facts:
+      gather_subset:
+      - config
+    when: ansible_network_os == 'nxos'

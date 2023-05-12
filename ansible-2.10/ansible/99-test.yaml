@@ -1,0 +1,17 @@
+- name: Testing our fact-finding mission
+  hosts: all
+  gather_facts: no
+
+  tasks:
+
+  - name: Gather IOSXE Facts
+    cisco.ios.ios_facts:
+      gather_subset:
+      - config
+    when: ansible_network_os == 'cisco.ios.ios'
+ 
+  - name: Gather NXOS Facts
+    cisco.nxos.nxos_facts:
+      gather_subset:
+      - config
+    when: ansible_network_os == 'cisco.nxos.nxos'
